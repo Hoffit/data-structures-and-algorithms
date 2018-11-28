@@ -15,4 +15,4 @@ beginning. With each increment, place the element into the return array, which i
 ascending order.
 
 ## Solution
-[White board write up](assets/white-board.jpg)
+[White board write up](assets/array_reverse.jpg)
