@@ -1,23 +1,16 @@
-# Code Fellows 401 Data Structures and Algorithms
-This repo will be home to daily code challenges.
-
-# CF Code Challenge Day 01
-[challenge readme](./README_Challenge_01.md)
-
-# CF Code Challenge Day 02
-## Insert Shift Array.
-This is CF 401 day one code challenge.
+# CF Code Challenge Day 03
+## Array Binary Search.
+This is CF 401 day three code challenge.
 
 ## Challenge
-Write a function called insertShiftArray which takes in an array and the value to be added. Without
-utilizing any of the built-in methods available to your language, return an array with the new value
-added at the middle index.
+Write a function called BinarySearch which takes in 2 parameters: a sorted array and the search key.
+Without utilizing any of the built-in methods available to your language, return the index of the
+array’s element that is equal to the search key, or -1 if the element does not exist.
 
 ## Approach & Efficiency
-Created a method that determines the middle index at which to insert the new value. Then, it loops
-through the input array and inserts the values in the output array, and when the middle index is
-encountered, inserts the new value.
+Created a method that follows the wiki binary search algorithm closely:
+https://en.wikipedia.org/wiki/Binary_search_algorithm
+O(log n)
 
 ## Solution
-[White board write up](assets/array_shift1.jpg)
-[White board write up](assets/array_shift2.jpg)
+[White board write up](assets/array_binary_search.jpg)
