@@ -1,6 +1,7 @@
 # Created by https://www.gitignore.io/api/android,java,macos,gradle,intellij,androidstudio
 
-
+# User Stuff
+src/main/java/TryStuff.java
 
 ### Android ###
 
