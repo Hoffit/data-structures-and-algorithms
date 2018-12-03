@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"<Unnamed>","l":"ArrayShift"},{"p":"<Unnamed>","l":"BinarySearch"},{"p":"ds","l":"LinkedList"},{"p":"ds","l":"Node"},{"p":"<Unnamed>","l":"ReverseArray"}]
