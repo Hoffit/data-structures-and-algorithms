@@ -107,4 +107,87 @@ public class LinkedListTest {
         System.setOut(originalOut);
         assertTrue(expected.equals(outContent.toString()));
     }
+
+    @Test public void testAppendValueMethod() {
+        // "First!" -> "Fourth from last" -> "Third from last" -> "Second from last" -> "This is a test!"
+        String[] elements = {"First!", "Second from last", "Third from last", "Fourth from last", "This is a test!"};
+        LinkedList linkedList = new LinkedList();
+
+        // Add a null value
+        String expected = "Input error: value to insert is null.";
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;
+        System.setOut(new PrintStream(outContent));
+        linkedList.appendValue(null);
+        System.setOut(originalOut);
+        assertTrue(expected.equals(outContent.toString()));
+
+        // Add a non-null value to a list with one node
+        linkedList.insert(elements[2]);
+        linkedList.appendValue(elements[3]);
+        assertTrue(linkedList.getFirst().getNextNode().getValue().equals(elements[3]));
+
+        // Add non-null value to list with 2+ nodes
+        linkedList.appendValue(elements[4]);
+        assertTrue(linkedList.getFirst().getNextNode().getNextNode().getValue().equals(elements[4]));
+
+        // Add a non-null value to a list with zero nodes
+        linkedList = new LinkedList();
+        linkedList.appendValue(elements[0]);
+        assertTrue(linkedList.getFirst().getValue().equals(elements[0]));
+    }
+
+    @Test public void testInsertBeforeMethod() {
+        // "First!" -> "Fourth from last" -> "Third from last" -> "Second from last" -> "This is a test!"
+        String[] elements = {"First!", "Second from last", "Third from last", "Fourth from last", "This is a test!"};
+        LinkedList linkedList = new LinkedList();
+
+        // Add a null value
+        String newLine = System.lineSeparator();
+        String searchValue = "junk";
+        String expected = "Info: No insert before " + searchValue + " because linked list is empty." + newLine;
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;
+        System.setOut(new PrintStream(outContent));
+        linkedList.insertBefore(searchValue,null);
+        System.setOut(originalOut);
+        assertTrue(expected.equals(outContent.toString()));
+
+        // Add a non-null value to a list with one node
+        linkedList.insert(elements[4]);
+        linkedList.insertBefore(elements[4], elements[3]);
+        assertTrue(linkedList.getFirst().getValue().equals(elements[3]));
+
+        // Add non-null value to list with 2+ nodes
+        linkedList.insert(elements[2]);
+        linkedList.insert(elements[1]);
+        linkedList.insertBefore(elements[1], elements[0]);
+        assertTrue(linkedList.getFirst().getValue().equals(elements[0]));
+    }
+
+    @Test public void testInsertAfterMethod() {
+        // "First!" -> "Fourth from last" -> "Third from last" -> "Second from last" -> "This is a test!"
+        String[] elements = {"First!", "Second from last", "Third from last", "Fourth from last", "This is a test!"};
+        LinkedList linkedList = new LinkedList();
+
+        // Add a null value
+        String newLine = System.lineSeparator();
+        String searchValue = "junk";
+        String expected = "Info: No insert after " + searchValue + " because linked list is empty." + newLine;
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;
+        System.setOut(new PrintStream(outContent));
+        linkedList.insertAfter(searchValue,null);
+        System.setOut(originalOut);
+        assertTrue(expected.equals(outContent.toString()));
+
+        // Add a non-null value to a list with one node
+        linkedList.insert(elements[2]);
+        linkedList.insertAfter(elements[2], elements[4]);
+        assertTrue(linkedList.getFirst().getNextNode().getValue().equals(elements[4]));
+
+        // Add non-null value to list with 2+ nodes
+        linkedList.insertAfter(elements[2], elements[3]);
+        assertTrue(linkedList.getFirst().getNextNode().getValue().equals(elements[3]));
+    }
 }

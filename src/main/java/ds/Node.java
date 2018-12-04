@@ -11,11 +11,15 @@ public class Node {
 
     /**
      * Creates a new Node with the specified parameters.
-     * @param value The value stored in the Node.
-     * @param nextNode A reference to the next Node in the list.
+     * @param aValue The value stored in the Node. Must be non-null.
+     * @param nextNode A reference to the next Node in the list. Null is ok.
      */
-    Node(String value, Node nextNode) {
-        this.value = value;
+    Node(String aValue, Node nextNode) throws IllegalArgumentException {
+
+        if (aValue == null) {
+            throw new IllegalArgumentException("");
+        }
+        this.value = aValue;
         this.nextNode = nextNode;
     }
 
@@ -33,5 +37,13 @@ public class Node {
      */
     protected Node getNextNode() {
         return nextNode;
+    }
+
+    /**
+     * Set the next node.
+     * @param nextNode The node that follows this node in the chain.
+     */
+    public void setNextNode(Node nextNode) {
+        this.nextNode = nextNode;
     }
 }
