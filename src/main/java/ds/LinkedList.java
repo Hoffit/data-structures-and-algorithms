@@ -128,4 +128,28 @@ public class LinkedList {
             currentNode = currentNode.getNextNode();
         }
     }
+
+    /**
+     * Returns the kth from last Node in this linked list.
+     * @param kth The kth from last for which to search.
+     * @return The Node that is kth from last. May be null.
+     */
+    public Node findKthFromLastNode(int kth) {
+        if (head == null) {
+            System.out.println("Info: No kth from last because linked list is empty.");
+            return null;
+        }
+
+        int nodeCount = 1; //because head is non-null
+        Node currentNode = head;
+        Node kthNode = null;
+        while (currentNode != null) {
+            if (nodeCount > kth) { //if true we will return non-null node.
+                kthNode = (kthNode == null) ? (head) : (kthNode.getNextNode());
+            }
+            nodeCount++;
+            currentNode = currentNode.getNextNode();
+        }
+        return kthNode;
+    }
 }

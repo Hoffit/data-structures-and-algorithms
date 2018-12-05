@@ -190,4 +190,51 @@ public class LinkedListTest {
         linkedList.insertAfter(elements[2], elements[3]);
         assertTrue(linkedList.getFirst().getNextNode().getValue().equals(elements[3]));
     }
+
+    @Test public void testFindKthFromLastNode() {
+        // "First!" -> "Fourth from last" -> "Third from last" -> "Second from last" -> "This is a test!"
+        String[] elements = {"First!", "Second from last", "Third from last", "Fourth from last", "This is a test!"};
+        LinkedList linkedList = new LinkedList();
+
+        // Search in a list with zero nodes (head = null)
+        String newLine = System.lineSeparator();
+        String expected = "Info: No kth from last because linked list is empty." + newLine;
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;
+        System.setOut(new PrintStream(outContent));
+        linkedList.findKthFromLastNode(0);
+        System.setOut(originalOut);
+        assertTrue(expected.equals(outContent.toString()));
+
+        // Search in a list with one node (list length >= k) => node found scenario
+        linkedList.insert(elements[0]);
+        Node kthNode = linkedList.findKthFromLastNode(0);
+        assertTrue(kthNode.getValue().equals(elements[0]));
+
+        // Search in a list with one node (list length < k) => node not found scenario
+        kthNode = linkedList.findKthFromLastNode(1);
+        assertNull(kthNode);
+
+        // Search in a list with multiple nodes (list length >= k) => node found scenario
+        linkedList.insertAfter(elements[0], elements[1]);
+        linkedList.insertAfter(elements[1], elements[2]);
+        linkedList.insertAfter(elements[2], elements[3]);
+        linkedList.insertAfter(elements[3], elements[4]);
+        kthNode = linkedList.findKthFromLastNode(2);
+        assertTrue(kthNode.getValue().equals(elements[2]));
+
+        // Search in a list with multiple nodes (list length < k) => node not found scenario
+        kthNode = linkedList.findKthFromLastNode(7);
+        assertNull(kthNode);
+
+        // Search in a list with multiple nodes (list length < k) => node not found scenario.
+        // Edge test where just one node shy of getting a result.
+        kthNode = linkedList.findKthFromLastNode(5);
+        assertNull(kthNode);
+
+        // Search in a list with multiple nodes (list length >= k) => node found scenario.
+        // Edge test where list has just exactly the min number of nodes to find kthNode from last.
+        kthNode = linkedList.findKthFromLastNode(4);
+        assertTrue(kthNode.getValue().equals(elements[0]));
+    }
 }

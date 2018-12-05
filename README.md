@@ -12,6 +12,11 @@ This repo will be home to daily code challenges.
 # CF Code Challenge Day 03
 [challenge readme](./README_Challenge_03.md)
 
+# CF Code Challenge 06
+[challenge readme](./README_Challenge_06.md)
+
 # CF Lab 05
 [lab readme](./README_Lab05.md)
 
+# CF Code Challenge 07
+[challenge readme](./README_Challenge_07.md)
