@@ -320,7 +320,7 @@ public class LinkedListTest {
 
     @Test
     public void testMergeMethod_Different_Size_Lists() {
-        //Scenario 
+        //Scenario
         // List One: "A" -> "B" -> "C" -> "D"
         String[] elements = {"A", "B", "C", "D"};
         LinkedList linkedListOne = new LinkedList(elements);
