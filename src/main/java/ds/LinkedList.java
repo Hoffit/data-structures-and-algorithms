@@ -210,6 +210,13 @@ public class LinkedList {
             // Update temp list heads for next iteration
             listOneTempHead = listOneNext;
             listTwoTempHead = listTwoNext;
+
+            if (listTwoNext == null) {
+                return listOne.getFirst();
+            }
+            if (listOneNext == null) {
+                listOneTempHead.setNextNode(listTwoNext);
+            }
         }
         return listOne.getFirst();
     }

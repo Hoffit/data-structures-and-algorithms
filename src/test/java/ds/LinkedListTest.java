@@ -9,13 +9,15 @@ import static org.junit.Assert.*;
 
 public class LinkedListTest {
 
-    @Test public void testLinkedListConstructor() {
+    @Test
+    public void testLinkedListConstructor() {
         LinkedList linkedList = new LinkedList();
         assertNotNull(linkedList);
         assertNull(linkedList.getFirst());
     }
 
-    @Test public void testInsertMethod() {
+    @Test
+    public void testInsertMethod() {
         LinkedList linkedList = new LinkedList();
 
         // Test insert null value
@@ -50,7 +52,8 @@ public class LinkedListTest {
         assertNull(aNode);
     }
 
-    @Test public void testIncludesMethod() {
+    @Test
+    public void testIncludesMethod() {
         // "First!" -> "Fourth from last" -> "Third from last" -> "Second from last" -> "This is a test!"
         String[] elements = {"First!", "Second from last", "Third from last", "Fourth from last", "This is a test!"};
         LinkedList linkedList = new LinkedList();
@@ -71,7 +74,8 @@ public class LinkedListTest {
         }
     }
 
-    @Test public void testPrintMethod() {
+    @Test
+    public void testPrintMethod() {
         // "First!" -> "Fourth from last" -> "Third from last" -> "Second from last" -> "This is a test!"
         String[] elements = {"First!", "Second from last", "Third from last", "Fourth from last", "This is a test!"};
         LinkedList linkedList = new LinkedList();
@@ -86,7 +90,7 @@ public class LinkedListTest {
         assertTrue(expected.equals(outContent.toString()));
 
         // Print a list with one node.
-        linkedList.insert(elements[elements.length-1]);
+        linkedList.insert(elements[elements.length - 1]);
         expected = "This is a test!";
         outContent = new ByteArrayOutputStream();
         originalOut = System.out;
@@ -108,7 +112,8 @@ public class LinkedListTest {
         assertTrue(expected.equals(outContent.toString()));
     }
 
-    @Test public void testAppendValueMethod() {
+    @Test
+    public void testAppendValueMethod() {
         // "First!" -> "Fourth from last" -> "Third from last" -> "Second from last" -> "This is a test!"
         String[] elements = {"First!", "Second from last", "Third from last", "Fourth from last", "This is a test!"};
         LinkedList linkedList = new LinkedList();
@@ -137,7 +142,8 @@ public class LinkedListTest {
         assertTrue(linkedList.getFirst().getValue().equals(elements[0]));
     }
 
-    @Test public void testInsertBeforeMethod() {
+    @Test
+    public void testInsertBeforeMethod() {
         // "First!" -> "Fourth from last" -> "Third from last" -> "Second from last" -> "This is a test!"
         String[] elements = {"First!", "Second from last", "Third from last", "Fourth from last", "This is a test!"};
         LinkedList linkedList = new LinkedList();
@@ -149,7 +155,7 @@ public class LinkedListTest {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outContent));
-        linkedList.insertBefore(searchValue,null);
+        linkedList.insertBefore(searchValue, null);
         System.setOut(originalOut);
         assertTrue(expected.equals(outContent.toString()));
 
@@ -165,7 +171,8 @@ public class LinkedListTest {
         assertTrue(linkedList.getFirst().getValue().equals(elements[0]));
     }
 
-    @Test public void testInsertAfterMethod() {
+    @Test
+    public void testInsertAfterMethod() {
         // "First!" -> "Fourth from last" -> "Third from last" -> "Second from last" -> "This is a test!"
         String[] elements = {"First!", "Second from last", "Third from last", "Fourth from last", "This is a test!"};
         LinkedList linkedList = new LinkedList();
@@ -177,7 +184,7 @@ public class LinkedListTest {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outContent));
-        linkedList.insertAfter(searchValue,null);
+        linkedList.insertAfter(searchValue, null);
         System.setOut(originalOut);
         assertTrue(expected.equals(outContent.toString()));
 
@@ -191,7 +198,8 @@ public class LinkedListTest {
         assertTrue(linkedList.getFirst().getNextNode().getValue().equals(elements[3]));
     }
 
-    @Test public void testFindKthFromLastNodeMethod() {
+    @Test
+    public void testFindKthFromLastNodeMethod() {
         // "First!" -> "Fourth from last" -> "Third from last" -> "Second from last" -> "This is a test!"
         String[] elements = {"First!", "Second from last", "Third from last", "Fourth from last", "This is a test!"};
         LinkedList linkedList = new LinkedList();
@@ -238,7 +246,8 @@ public class LinkedListTest {
         assertTrue(kthNode.getValue().equals(elements[0]));
     }
 
-    @Test public void testMergeMethod_OneListNull() {
+    @Test
+    public void testMergeMethod_OneListNull() {
         // List One: "A"
         String[] elements = {"A"};
         LinkedList linkedList = new LinkedList(elements);
@@ -261,7 +270,8 @@ public class LinkedListTest {
         }
     }
 
-    @Test public void testMergeMethod_OneListHeadNull() {
+    @Test
+    public void testMergeMethod_OneListHeadNull() {
         // List One: "A"
         String[] elements = {"A"};
         LinkedList linkedListOne = new LinkedList(elements);
@@ -287,7 +297,8 @@ public class LinkedListTest {
         }
     }
 
-    @Test public void testMergeMethod() {
+    @Test
+    public void testMergeMethod() {
         // List One: "A" -> "B" -> "C" -> "D"
         String[] elements = {"A", "B", "C", "D"};
         LinkedList linkedListOne = new LinkedList(elements);
@@ -306,4 +317,27 @@ public class LinkedListTest {
             resultNode = resultNode.getNextNode();
         }
     }
+
+    @Test
+    public void testMergeMethod_Different_Size_Lists() {
+        //Scenario 
+        // List One: "A" -> "B" -> "C" -> "D"
+        String[] elements = {"A", "B", "C", "D"};
+        LinkedList linkedListOne = new LinkedList(elements);
+
+        // List Two: "E"
+        String[] elements2 = {"E"};
+        LinkedList linkedListTwo = new LinkedList(elements2);
+
+        // Expected Merge Result
+        String[] elementsExpected = {"A", "E", "B", "C", "D"};
+
+        // Merge
+        Node resultNode = LinkedList.merge(linkedListOne, linkedListTwo);
+        for (int i = 0; i < elementsExpected.length; i++) {
+            assertTrue(resultNode.getValue().equals(elementsExpected[i]));
+            resultNode = resultNode.getNextNode();
+        }
+    }
 }
+
