@@ -8,6 +8,29 @@ public class LinkedList {
     private Node head; // The first node in the chain
 
     /**
+     * Default no-arg constructor.
+     */
+    public LinkedList() {
+        super();
+    }
+
+    /**
+     * Create a new LinkedList initialized with Nodes for each value in values.
+     * The list constructed will maintain the order of the passed in values. So,
+     * the first element in the input values will be the first value in the list,
+     * and the second element will be the second in the list, and so on.
+     * @param values The values for which to create a list of linked Nodes.
+     */
+    public LinkedList(String[] values) {
+        if (values.length == 0) {
+            throw new IllegalArgumentException("Error: input values must have at least one value.");
+        }
+        for (int i = values.length - 1; i >= 0; i--) {
+            insert(values[i]);
+        }
+    }
+
+    /**
      * This inserts a new node at the start of the list, which then links to the prior head node.
      * @param aValue A value to insert.
      */
@@ -151,5 +174,43 @@ public class LinkedList {
             currentNode = currentNode.getNextNode();
         }
         return kthNode;
+    }
+
+    public static Node merge(LinkedList listOne, LinkedList listTwo) {
+        // Check/prevent situations that can't be merged, and would result in a null pointer exception.
+        if (listOne == null && listTwo == null) {
+            throw new IllegalArgumentException("Both lists to merge are null! Nothing to merge!");
+        }
+        if ((listOne == null && listTwo.getFirst() == null) || (listTwo == null && listOne.getFirst() == null)) {
+            throw new IllegalArgumentException("One list is null and the other has no head! Nothing to merge!");
+        }
+
+        // Now check for trivial merges
+        if ((listOne == null) || (listOne.getFirst() == null)) {
+            return listTwo.getFirst();
+        }
+        else if ((listTwo == null) || (listTwo.getFirst() == null)) {
+            return  listOne.getFirst();
+        }
+
+        // TODO Refine while clause for edge cases.
+        Node listOneTempHead = listOne.getFirst();
+        Node listTwoTempHead = listTwo.getFirst();
+        Node listOneNext;
+        Node listTwoNext;
+        while (listOneTempHead != null && listTwoTempHead != null) {
+            // store lists next nodes to we don't loose them
+            listOneNext = listOneTempHead.getNextNode();
+            listTwoNext = listTwoTempHead.getNextNode();
+
+            // Change the temp heads next nodes (this is the merge action)
+            listOneTempHead.setNextNode(listTwoTempHead);
+            listTwoTempHead.setNextNode(listOneNext);
+
+            // Update temp list heads for next iteration
+            listOneTempHead = listOneNext;
+            listTwoTempHead = listTwoNext;
+        }
+        return listOne.getFirst();
     }
 }

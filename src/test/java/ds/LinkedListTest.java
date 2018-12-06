@@ -191,7 +191,7 @@ public class LinkedListTest {
         assertTrue(linkedList.getFirst().getNextNode().getValue().equals(elements[3]));
     }
 
-    @Test public void testFindKthFromLastNode() {
+    @Test public void testFindKthFromLastNodeMethod() {
         // "First!" -> "Fourth from last" -> "Third from last" -> "Second from last" -> "This is a test!"
         String[] elements = {"First!", "Second from last", "Third from last", "Fourth from last", "This is a test!"};
         LinkedList linkedList = new LinkedList();
@@ -236,5 +236,74 @@ public class LinkedListTest {
         // Edge test where list has just exactly the min number of nodes to find kthNode from last.
         kthNode = linkedList.findKthFromLastNode(4);
         assertTrue(kthNode.getValue().equals(elements[0]));
+    }
+
+    @Test public void testMergeMethod_OneListNull() {
+        // List One: "A"
+        String[] elements = {"A"};
+        LinkedList linkedList = new LinkedList(elements);
+
+        // Expected Merge Result
+        String[] elementsExpected = {"A"};
+
+        // Merge with list two null
+        Node resultNode = LinkedList.merge(linkedList, null);
+        for (int i = 0; i < elementsExpected.length; i++) {
+            assertTrue(resultNode.getValue().equals(elementsExpected[i]));
+            resultNode = resultNode.getNextNode();
+        }
+
+        // Merge with list one null
+        resultNode = LinkedList.merge(null, linkedList);
+        for (int i = 0; i < elementsExpected.length; i++) {
+            assertTrue(resultNode.getValue().equals(elementsExpected[i]));
+            resultNode = resultNode.getNextNode();
+        }
+    }
+
+    @Test public void testMergeMethod_OneListHeadNull() {
+        // List One: "A"
+        String[] elements = {"A"};
+        LinkedList linkedListOne = new LinkedList(elements);
+
+        // List Two: head = null
+        LinkedList linkedListTwo = new LinkedList();
+
+        // Expected Merge Result
+        String[] elementsExpected = {"A"};
+
+        // Merge with list two's head null
+        Node resultNode = LinkedList.merge(linkedListOne, linkedListTwo);
+        for (int i = 0; i < elementsExpected.length; i++) {
+            assertTrue(resultNode.getValue().equals(elementsExpected[i]));
+            resultNode = resultNode.getNextNode();
+        }
+
+        // Merge with list one's head null
+        resultNode = LinkedList.merge(linkedListTwo, linkedListOne);
+        for (int i = 0; i < elementsExpected.length; i++) {
+            assertTrue(resultNode.getValue().equals(elementsExpected[i]));
+            resultNode = resultNode.getNextNode();
+        }
+    }
+
+    @Test public void testMergeMethod() {
+        // List One: "A" -> "B" -> "C" -> "D"
+        String[] elements = {"A", "B", "C", "D"};
+        LinkedList linkedListOne = new LinkedList(elements);
+
+        // List Two: "E" -> "F" -> "G" -> "H"
+        String[] elements2 = {"E", "F", "G", "H"};
+        LinkedList linkedListTwo = new LinkedList(elements2);
+
+        // Expected Merge Result
+        String[] elementsExpected = {"A", "E", "B", "F", "C", "G", "D", "H"};
+
+        // Merge
+        Node resultNode = LinkedList.merge(linkedListOne, linkedListTwo);
+        for (int i = 0; i < elementsExpected.length; i++) {
+            assertTrue(resultNode.getValue().equals(elementsExpected[i]));
+            resultNode = resultNode.getNextNode();
+        }
     }
 }
