@@ -26,8 +26,8 @@ public class ReverseArray {
 
     /**
      * Code challenge - reverse an array of strings.
-     * @param stringToReverse
-     * @return
+     * @param stringToReverse The input String to reverse.
+     * @return The String[] representing the input String[] in reverse order.
      */
     private static String[] reverseArray(String[] stringToReverse) {
         int arrayLength = stringToReverse.length;
@@ -45,7 +45,7 @@ public class ReverseArray {
 
     /**
      * Take in the array of strings, and print them pretty as a sentence.
-     * @param someArrayOfStrings
+     * @param someArrayOfStrings Pretty print the input String[] someArrayOfStrings
      */
     private static void printAsSentence(String[] someArrayOfStrings) {
         int arrayLength = someArrayOfStrings.length;

@@ -20,3 +20,9 @@ This repo will be home to daily code challenges.
 
 # CF Code Challenge 07
 [challenge readme](./README_Challenge_07.md)
+
+# CF Code Challenge 08
+[challenge readme](./README_Challenge_08.md)
+
+# CF Code Challenge 08
+[challenge readme](./README_Challenge_10.md)
