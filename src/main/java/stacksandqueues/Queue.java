@@ -21,7 +21,7 @@ public class Queue {
      */
     public void enqueue(String aValue) {
         if (aValue == null) {
-            System.out.println("Error: invalid input. aValue must be a non-null value.");
+            System.out.print("Error: invalid input. aValue must be a non-null value.");
             return;
         }
 
@@ -75,5 +75,21 @@ public class Queue {
      */
     public Node peak() {
         return front;
+    }
+
+    /**
+     * Returns the front node in the queue. Intended as a helper method for testing.
+     * @return The front node in the queue.
+     */
+    Node getFront() {
+        return front;
+    }
+
+    /**
+     * Returns the back node in the queue. Intended as a helper method for testing.
+     * @return The back node in the queue.
+     */
+    Node getBack() {
+        return back;
     }
 }

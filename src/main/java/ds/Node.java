@@ -25,7 +25,7 @@ public class Node {
 
     /**
      * Returns the value of this node. May be an empty String.
-     * @return
+     * @return Returns the value contained in this node.
      */
     protected String getValue() {
         return value;

@@ -16,7 +16,7 @@ public class Stack {
      */
     public void push(String aValue) {
         if (aValue == null) {
-            System.out.println("Error: the input value to push to the stack is null.");
+            System.out.print("Error: the input value to push to the stack is null.");
             return;
         }
         top = new Node(aValue, top);

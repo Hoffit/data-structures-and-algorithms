@@ -25,7 +25,7 @@ public class Node {
      */
     Node(String aValue, Node nextNode) {
         if (aValue == null) {
-            System.out.println("Error: invalid input. aValue must be a non-null value.");
+            System.out.print("Error: invalid input. aValue must be a non-null value.");
         }
         this.value = aValue;
         this.nextNode = nextNode;
@@ -49,7 +49,7 @@ public class Node {
 
     /**
      * Returns the value of this node. May be an empty String.
-     * @return
+     * @return Returns the value contained in this node.
      */
     protected String getValue() {
         return value;
