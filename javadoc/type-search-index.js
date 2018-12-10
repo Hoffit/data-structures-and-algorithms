@@ -1,1 +1,1 @@
-typeSearchIndex = [{"p":"<Unnamed>","l":"ArrayShift"},{"p":"<Unnamed>","l":"BinarySearch"},{"p":"ds","l":"LinkedList"},{"p":"ds","l":"Node"},{"p":"<Unnamed>","l":"ReverseArray"}]
+typeSearchIndex = [{"p":"<Unnamed>","l":"ArrayShift"},{"p":"<Unnamed>","l":"BinarySearch"},{"p":"ds","l":"LinkedList"},{"p":"ds","l":"Node"},{"p":"stacksandqueues","l":"Node"},{"p":"stacksandqueues","l":"Queue"},{"p":"<Unnamed>","l":"ReverseArray"},{"p":"stacksandqueues","l":"Stack"}]
