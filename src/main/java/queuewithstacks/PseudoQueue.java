@@ -29,13 +29,13 @@ public class PseudoQueue implements Queue {
     @Override
     public void enqueue(String aValue) {
         //Handle trivial case of empty queues
-        if (enQueue.peak() == null && deQueue.peak() == null) {
+        if (enQueue.peek() == null && deQueue.peek() == null) {
             enQueue.push(aValue);
             return;
         }
 
         //Handle case where enqueue has nodes (and not dequeue)
-        if (enQueue.peak() != null) {
+        if (enQueue.peek() != null) {
             enQueue.push(aValue);
             return;
         }
@@ -53,19 +53,19 @@ public class PseudoQueue implements Queue {
     @Override
     public String peek() {
         //Handle trivial case of empty queues
-        if (enQueue.peak() == null && deQueue.peak() == null) {
+        if (enQueue.peek() == null && deQueue.peek() == null) {
             return null;
         }
 
         //Handle case where enqueue has nodes (and not dequeue)
-        if (enQueue.peak() != null) {
+        if (enQueue.peek() != null) {
             transferNodesToDequeueStack();
-            return deQueue.peak().getValue();
+            return deQueue.peek().getValue();
         }
 
         //Handle case where dequeue has nodes (and not enqueue)
-        if (deQueue.peak() != null) {
-            return deQueue.peak().getValue();
+        if (deQueue.peek() != null) {
+            return deQueue.peek().getValue();
         }
         return null;
     }
@@ -77,18 +77,18 @@ public class PseudoQueue implements Queue {
     @Override
     public String dequeue() {
         //Handle trivial case of empty queues
-        if (enQueue.peak() == null && deQueue.peak() == null) {
+        if (enQueue.peek() == null && deQueue.peek() == null) {
             return null;
         }
 
         //Handle case where enqueue has nodes (and not dequeue)
-        if (enQueue.peak() != null) {
+        if (enQueue.peek() != null) {
             transferNodesToDequeueStack();
             return deQueue.pop().getValue();
         }
 
         //Handle case where dequeue has nodes (and not enqueue)
-        if (deQueue.peak() != null) {
+        if (deQueue.peek() != null) {
             return deQueue.pop().getValue();
         }
         return null;
@@ -98,7 +98,7 @@ public class PseudoQueue implements Queue {
      * Moves nodes from enQueue to deQueue, thereby reversing their order.
      */
     private void transferNodesToDequeueStack() {
-        while (enQueue.peak() != null) {
+        while (enQueue.peek() != null) {
             deQueue.push(enQueue.pop());
         }
     }
@@ -107,7 +107,7 @@ public class PseudoQueue implements Queue {
      * Moves nodes from deQueue to enQueue, thereby reversing their order.
      */
     private void transferNodesToEnqueueStack() {
-        while (deQueue.peak() != null) {
+        while (deQueue.peek() != null) {
             enQueue.push(deQueue.pop());
         }
     }

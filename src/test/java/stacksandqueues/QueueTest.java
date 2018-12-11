@@ -13,7 +13,7 @@ public class QueueTest {
     public void testQueueConstructor() {
         Queue queue = new Queue();
         assertNotNull(queue);
-        assertNull(queue.peak());
+        assertNull(queue.peek());
         assertNull(queue.getFront());
         assertNull(queue.getBack());
         assertNull(queue.dequeue());
@@ -37,17 +37,17 @@ public class QueueTest {
     public void testEnqueueMethod_EmptyString() {
         Queue queue = new Queue();
         queue.enqueue("");
-        assertTrue(queue.peak().getValue().equals(""));
+        assertTrue(queue.peek().getValue().equals(""));
     }
 
     @Test
-    public void testEnqueueAndPeakMethods_Simple() {
+    public void testEnqueueAndPeekMethods_Simple() {
         Queue queue = new Queue();
 
         // Happy path; test enqueue single non-null value
         String testString = "This is a test!";
         queue.enqueue(testString);
-        assertTrue(queue.peak().getValue().equals(testString));
+        assertTrue(queue.peek().getValue().equals(testString));
     }
 
     @Test

@@ -52,7 +52,7 @@ public class Stack {
      * Returns the top node in the stack, without removing it from the stack.
      * @return The Node at the top of the stack. May be null.
      */
-    public Node peak() {
+    public Node peek() {
         return top;
     }
 }
