@@ -28,7 +28,7 @@ Push's, peaks and pops:
 - space:  O(1)
 
 Explanation: See javadoc and white board image for more details on the algorithm, but anytime there is a switch from operating against one stack, to operating against the
-other stack, the contents of the stacks are swapped (Big O(n)).
+other stack, the contents of the stacks are swapped (Big O(n)). Otherwise, Big O(1).
 
 ## API
 Please open javadoc on your local computer in your browser:
