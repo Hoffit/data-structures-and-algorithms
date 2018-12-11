@@ -25,7 +25,7 @@ public class StackTest {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outContent));
-        stack.push(null);
+        stack.push((String)null);
         System.setOut(originalOut);
         assertTrue(expected.equals(outContent.toString()));
     }

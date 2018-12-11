@@ -51,7 +51,7 @@ public class Node {
      * Returns the value of this node. May be an empty String.
      * @return Returns the value contained in this node.
      */
-    protected String getValue() {
+    public String getValue() {
         return value;
     }
 }

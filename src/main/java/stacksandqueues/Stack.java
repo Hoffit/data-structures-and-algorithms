@@ -23,6 +23,19 @@ public class Stack {
     }
 
     /**
+     * Inserts the provided node aNode at the top of the stack.
+     * @param aNode The node to insert onto the stack. Must be non-null.
+     */
+    public void push(Node aNode) {
+        if (aNode == null) {
+            System.out.print("Error: the input node to push to the stack is null.");
+            return;
+        }
+        aNode.setNextNode(top);
+        top = aNode;
+    }
+
+    /**
      * Returns the node at the top of the stack.
      * @return The top node in the stack. May be null.
      */
