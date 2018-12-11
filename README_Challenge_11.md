@@ -16,14 +16,14 @@ The Stack instances have only push, pop, and peek methods. You should use your o
 #### Flavor one
 Consecutive enqueue's, or consecutive peeks and dequeue's. But no alternating between them.
 
-Push's, peaks and pops:
+Push's, peeks and pops:
 - time:   O(1)
 - space:  O(1)
 
 #### Flavor two
 Alternating enqueue's and peeks or dequeue's.
 
-Push's, peaks and pops:
+Push's, peeks and pops:
 - time:   O(n)
 - space:  O(1)
 

@@ -39,7 +39,7 @@ public class PseudoQueueTest {
     }
 
     @Test
-    public void testEnqueueAndPeakMethods_Simple() {
+    public void testEnqueueAndpeekMethods_Simple() {
         PseudoQueue queue = new PseudoQueue();
 
         // Happy path; test enqueue single non-null value

@@ -23,11 +23,11 @@ At no time should an exception or stack trace be shown to the end user. Catch an
 Be sure to follow your languages best practices for naming conventions.
 
 ## Approach & Efficiency
-Stack push's, peaks and pops:
+Stack push's, peeks and pops:
 - time:   O(1)
 - space:  O(1)
 
-Queue enqueues, and peaks:
+Queue enqueues, and peeks:
 - time:   O(1)
 - space:  O(1)
 

@@ -13,7 +13,7 @@ public class StackTest {
     public void testStackConstructor() {
         Stack stack = new Stack();
         assertNotNull(stack);
-        assertNull(stack.peak());
+        assertNull(stack.peek());
     }
 
     @Test
@@ -38,13 +38,13 @@ public class StackTest {
     }
 
     @Test
-    public void testPushAndPeakMethods_Simple() {
+    public void testPushAndPeekMethods_Simple() {
         Stack stack = new Stack();
 
         // Happy path; test push single non-null value
         String testString = "This is a test!";
         stack.push(testString);
-        assertTrue(stack.peak().getValue().equals(testString));
+        assertTrue(stack.peek().getValue().equals(testString));
     }
 
     @Test

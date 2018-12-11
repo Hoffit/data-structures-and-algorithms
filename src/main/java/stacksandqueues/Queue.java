@@ -73,7 +73,7 @@ public class Queue {
      * Returns the node at the front of the queue, without removing it from the queue.
      * @return The node at the front of the queue. May be null.
      */
-    public Node peak() {
+    public Node peek() {
         return front;
     }
 
