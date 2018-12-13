@@ -32,3 +32,6 @@ This repo will be home to daily code challenges.
 
 # CF Code Challenge 12
 [challenge readme](./README_Challenge_12.md)
+
+# CF Code Challenge 13
+[challenge readme](./README_Challenge_13.md)
