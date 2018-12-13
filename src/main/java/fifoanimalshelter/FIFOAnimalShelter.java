@@ -12,14 +12,8 @@ import stacksandqueues.Queue;
  */
 public class FIFOAnimalShelter {
 
-    /**
-     * The supported animal types.
-     */
-    public enum AnimalType {
-        CAT, DOG, OTHER
-    }
-
     //TODO Enhancement idea; support generics, and then make these type strict.
+    //It's a big multi-lab refactor which is why I'm not touching it right now.
     /**
      * The dog queue
      */
@@ -36,54 +30,59 @@ public class FIFOAnimalShelter {
     private final Queue shelterOtherQueue = new Queue();
 
     /**
-     * A non-animal specific convenience enqueue operation.
-     * @param anAnimal An Animal to add to the shelter queue.
-     */
-    public void enqueue(Animal anAnimal) {
-        AnimalType animalType = AnimalType.OTHER;
-        if (anAnimal instanceof Dog) {
-            animalType = AnimalType.DOG;
-        }
-        else if (anAnimal instanceof Cat) {
-            animalType = AnimalType.CAT;
-        }
-
-        switch (animalType) {
-            case CAT:
-                enqueue((Cat) anAnimal);
-                break;
-
-            case DOG:
-                enqueue((Dog) anAnimal);
-                break;
-
-            case OTHER:
-                shelterOtherQueue.enqueue(anAnimal.getName());
-                break;
-        }
-    }
-
-    /**
      * Inserts a dog at the end of the dog shelter queue.
-     * @param aDog
+     * @param aDog A dog to add to the queue.
      */
-    protected void enqueue(Dog aDog) {
+    public void enqueue(Dog aDog) {
         shelterDogQueue.enqueue(aDog.getName());
     }
 
     /**
      * Inserts a cat at the end of the cat shelter queue.
-     * @param aCat
+     * @param aCat A cat to add to the queue.
      */
-    protected void enqueue(Cat aCat) {
-        shelterDogQueue.enqueue(aCat.getName());
+    public void enqueue(Cat aCat) {
+        shelterCatQueue.enqueue(aCat.getName());
     }
 
     /**
-     * Inserts non-specific types of animals into an 'other' queue.
-     * @param anAnimal
-     * @return
+     * Inserts an animal at the end of the animal shelter queue.
+     * @param anAnimal An animal to add to the animal queue.
      */
-    public Animal dequeue(Animal anAnimal) {
+    public void enqueue(Animal anAnimal) {
+        shelterOtherQueue.enqueue(anAnimal.getName());
+    }
+
+    /**
+     * Returns an animal of the specified type, typeOfAnimal, if there is one in the queue.
+     * @param typeOfAnimal The type of animal to return. Must be Animal.class, or one of its subclasses.
+     * @return An animal of the requested type.
+     */
+    public Animal dequeue(Class typeOfAnimal) {
+        if (typeOfAnimal == Dog.class) {
+            if (shelterDogQueue.peek() != null) {
+                return new Dog(shelterDogQueue.dequeue().getValue());
+            }
+            else {
+                return null;
+            }
+        }
+        if (typeOfAnimal == Cat.class) {
+            if (shelterCatQueue.peek() != null) {
+            return new Cat(shelterCatQueue.dequeue().getValue());
+        }
+        else {
+            return null;
+        }
+        }
+        if (typeOfAnimal == Animal.class) {
+            if (shelterOtherQueue.peek() != null) {
+            return new Animal(shelterOtherQueue.dequeue().getValue());
+    }
+            else {
+        return null;
+    }
+        }
+        return null;
     }
 }
