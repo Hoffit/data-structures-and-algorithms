@@ -17,15 +17,13 @@ Your function should take a string as its only argument, and should return a boo
     Curly Brackets : {}
 
 ## Approach & Efficiency
-Enqueues and peeks, and dequeue's:
-- time:   O(?)
-- space:  O(?)
-
-See javadoc and white board image for more details.
-
-## API
-Please open javadoc on your local computer in your browser:
-./javadoc/index.html
+I used a stack data structure. Key observation; you only need to check for balance on a close beacket.
+For open brackets, push onto the stack.
+For non-bracket characters, just ignore them.
+When you do encounter a close bracket, compare it to the last bracket pushed to the top of the stack,
+with peek. If they are balanced, pop and move on. If not, return false.
+- time:   O(n)
+- space:  O(n)
 
 ## Solution
 [White board write up](assets/multi-bracket-validation.jpg)
