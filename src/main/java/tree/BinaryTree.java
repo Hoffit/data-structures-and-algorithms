@@ -8,14 +8,23 @@ public class BinaryTree {
         if (node == null) {
             return null;
         }
-        ArrayList returnList = null;
-        ArrayList leftTraversal = preOrder(node.getLeftChildNode());
-        ArrayList rightTraversal = preOrder(node.getRightChildNode());
+        ArrayList<Node> returnList = new ArrayList<Node>();
+        returnList.add(node);
+        ArrayList<Node> leftTraversal = preOrder(node.getLeftChildNode());
+        ArrayList<Node> rightTraversal = preOrder(node.getRightChildNode());
         if (leftTraversal == null && rightTraversal == null) {
-            returnList = new ArrayList<Node>();
             returnList.add(node);
+            return returnList;
         }
-        return returnList;
+        if (leftTraversal != null && rightTraversal != null) {
+            returnList.addAll(leftTraversal);
+            returnList.addAll(rightTraversal);
+            return returnList;
+        }
+        if (leftTraversal == null) {
+            return rightTraversal;
+        }
+        return leftTraversal;
     }
 
     public Node[] inOrder(Node rootNode) {
