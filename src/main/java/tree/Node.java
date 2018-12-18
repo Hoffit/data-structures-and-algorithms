@@ -7,7 +7,7 @@ package tree;
  * - left child node
  * - right child node
  */
-public class Node {
+public class Node<T> implements Comparable<T> {
 
     /**
      * The child left node.
@@ -22,7 +22,7 @@ public class Node {
     /**
      * The value of this node.
      */
-    private String value;
+    private T value;
 
     /**
      * Node constructor.
@@ -30,7 +30,7 @@ public class Node {
      * @param leftChildNode The left child node. May be null.
      * @param rightChildNode The right child node. May be null.
      */
-    Node(String aValue, Node leftChildNode, Node rightChildNode) {
+    Node(T aValue, Node leftChildNode, Node rightChildNode) {
         this.value = aValue;
         this.leftChildNode = leftChildNode;
         this.rightChildNode = rightChildNode;
@@ -40,7 +40,7 @@ public class Node {
      * Returns the left child Node.
      * @return The left node. May be null.
      */
-    protected Node getLeftChildNode() {
+    Node getLeftChildNode() {
         return leftChildNode;
     }
 
@@ -56,7 +56,7 @@ public class Node {
      * Returns the right child Node.
      * @return The right node. May be null.
      */
-    protected Node getRightChildNode() {
+    Node getRightChildNode() {
         return rightChildNode;
     }
 
@@ -72,7 +72,23 @@ public class Node {
      * Returns the value of this node.
      * @return Returns the value contained in this node.
      */
-    public String getValue() {
+    public T getValue() {
         return value;
+    }
+
+    /**
+     * Node implementation of compareTo
+     */
+    @Override
+    public int compareTo(T o) {
+        if (value instanceof String) {
+            String oValue = (String)((Node)o).getValue();
+            return ((String)value).compareTo(oValue);
+        }
+        if (value instanceof Integer) {
+            Integer oValue = (Integer)o;
+            return ((Integer)value).compareTo(oValue);
+        }
+        return 0;
     }
 }
