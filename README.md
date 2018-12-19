@@ -38,3 +38,9 @@ This repo will be home to daily code challenges.
 
 # CF Lab 15 - Trees
 [challenge readme](./README_Lab15.md)
+
+# CF Code Challenge 16
+[challenge readme](./README_Challenge_16.md)
+
+# CF Code Challenge 17
+[challenge readme](./README_Challenge_17.md)
