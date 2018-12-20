@@ -44,3 +44,6 @@ This repo will be home to daily code challenges.
 
 # CF Code Challenge 17
 [challenge readme](./README_Challenge_17.md)
+
+# CF Code Challenge 18
+[challenge readme](./README_Challenge_18.md)

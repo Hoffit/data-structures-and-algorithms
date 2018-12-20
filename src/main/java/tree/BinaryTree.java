@@ -100,4 +100,12 @@ class BinaryTree {
         returnList.add(node);
         return returnList;
     }
+
+    /**
+     * Returns the maximum value in the tree.
+     */
+    public Node findMaximumValue() {
+        //TODO
+        return null;
+    }
 }
