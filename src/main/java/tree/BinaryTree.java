@@ -1,6 +1,8 @@
 package tree;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * This is a binary tree data structure.
@@ -109,6 +111,48 @@ public class BinaryTree {
         return null;
     }
 
+    /**
+     * Performs a bredth-first traversal, and returns the nodes in order.
+     * @return The array of nodes found according to breadth first tree traversal.
+     */
+    public Node[] breadthFirst() {
+        ArrayList<Node> list = breadthFirst(root);
+        return list.toArray(new Node[0]);
+    }
+
+    /**
+     * Returns the array list of nodes from breadth first traversal.
+     * @param node The input root node.
+     * @return The array list of nodes.
+     */
+    private ArrayList<Node> breadthFirst(Node node) {
+        // This was very helpful:
+        // https://www.cs.bu.edu/teaching/c/tree/breadth-first/
+        ArrayList<Node> returnList = new ArrayList<>();
+        if (node == null) {
+            return returnList;
+        }
+
+        LinkedList<Node> helperQueue = new LinkedList<Node>();
+        helperQueue.add(node);
+        while (helperQueue.size() > 0) {
+            Node traverseNode = helperQueue.poll();
+            returnList.add(traverseNode);
+
+            if (traverseNode.getLeftChildNode() != null) {
+                helperQueue.add(traverseNode.getLeftChildNode());
+            }
+            if (traverseNode.getRightChildNode() != null) {
+                helperQueue.add(traverseNode.getRightChildNode());
+            }
+        }
+        return returnList;
+    }
+
+    /**
+     * Getter.
+     * @return The root of the tree.
+     */
     public Node getRoot() {
         return root;
     }
