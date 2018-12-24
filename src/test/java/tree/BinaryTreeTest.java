@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 public class BinaryTreeTest {
@@ -108,6 +109,41 @@ public class BinaryTreeTest {
         searchTreeC.addNode(new Node("C", null, null));
         Node cNode = searchTreeC.search(new Node("C", null, null));
         assertTrue(cNode.compareTo(new Node("C", null, null)) == 0);
+    }
+
+    @Test
+    public void testBreadthFirstTraversalMethod() {
+        //Test a null tree scenario
+        BinaryTree tree = new BinaryTree(null);
+        Node[] nodes = tree.breadthFirst();
+        assertNotNull(nodes);
+        assertTrue(nodes.length == 0);
+
+        //Test a single node tree edge case
+        BinaryTree tree2 = new BinaryTree(new Node("X", null, null));
+        Node[] moreNodes = tree2.breadthFirst();
+        assertNotNull(nodes);
+        assertTrue(moreNodes.length == 1);
+        assertTrue(moreNodes[0].getValue().equals("X"));
+
+        //Test on our wiki based binary tree example
+        nodes = null;//whack prior instance to prevent accidental side effects
+        tree = new BinaryTree(createBinaryTree());
+        Node[] expected = new Node[] {
+                new Node("F", null, null),
+                new Node("B", null, null),
+                new Node("G", null, null),
+                new Node("A", null, null),
+                new Node("D", null, null),
+                new Node("I", null, null),
+                new Node("C", null, null),
+                new Node("E", null, null),
+                new Node("H", null, null)
+        };
+        nodes = tree.breadthFirst();
+        for (int i = 0; i < expected.length; i++) {
+            assertTrue(nodes[i].getValue().equals(expected[i].getValue()));
+        }
     }
 
     /**
