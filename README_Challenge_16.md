@@ -16,7 +16,7 @@ Return the tree with its new values.
 ## Approach & Efficiency
 I used the pre-order tree traversal technique to visit each node in the tree, and used modular arithmetic to check for
 divisibility by 3 or 5, where the remainder was 0.
-- time:   O(n)
+- time:   O(n) linear (logn for average case)
 - space:  O(1)
 
 ## Solution
