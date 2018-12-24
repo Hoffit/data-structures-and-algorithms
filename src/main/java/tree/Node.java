@@ -30,7 +30,7 @@ public class Node<T> implements Comparable<T> {
      * @param leftChildNode The left child node. May be null.
      * @param rightChildNode The right child node. May be null.
      */
-    Node(T aValue, Node leftChildNode, Node rightChildNode) {
+    public Node(T aValue, Node leftChildNode, Node rightChildNode) {
         this.value = aValue;
         this.leftChildNode = leftChildNode;
         this.rightChildNode = rightChildNode;
@@ -40,7 +40,7 @@ public class Node<T> implements Comparable<T> {
      * Returns the left child Node.
      * @return The left node. May be null.
      */
-    Node getLeftChildNode() {
+    public Node getLeftChildNode() {
         return leftChildNode;
     }
 
@@ -56,7 +56,7 @@ public class Node<T> implements Comparable<T> {
      * Returns the right child Node.
      * @return The right node. May be null.
      */
-    Node getRightChildNode() {
+    public Node getRightChildNode() {
         return rightChildNode;
     }
 
@@ -74,6 +74,10 @@ public class Node<T> implements Comparable<T> {
      */
     public T getValue() {
         return value;
+    }
+
+    public void setValue(T value) {
+        this.value = value;
     }
 
     /**

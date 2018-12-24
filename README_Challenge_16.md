@@ -11,12 +11,13 @@ If the value is divisible by 3, replace the value with “Fizz”
 If the value is divisible by 5, replace the value with “Buzz”
 If the value is divisible by 3 and 5, replace the value with “FizzBuzz”
 
-Return the tree with its news values.
+Return the tree with its new values.
 
 ## Approach & Efficiency
-
-- time:   O(?)
-- space:  O(?)
+I used the pre-order tree traversal technique to visit each node in the tree, and used modular arithmetic to check for
+divisibility by 3 or 5, where the remainder was 0.
+- time:   O(n)
+- space:  O(1)
 
 ## Solution
-[White board write up](assets/fizzbuzztree.jpg)
+[White board write up](assets/fizzbuzztree.gif)

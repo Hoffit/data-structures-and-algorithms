@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * This is a binary tree data structure.
  */
-class BinaryTree {
+public class BinaryTree {
 
     /**
      * The root node in the binary tree.
@@ -16,7 +16,7 @@ class BinaryTree {
      * Constructor.
      * @param root The root node of the tree.
      */
-    BinaryTree(Node root) {
+    public BinaryTree(Node root) {
         this.root = root;
     }
 
@@ -24,7 +24,7 @@ class BinaryTree {
      * Returns an array of nodes as a list using depth first pre-order search.
      * @return The array of nodes.
      */
-    Node[] preOrder() {
+    public Node[] preOrder() {
         ArrayList<Node> list = preOrder(root);
         return list.toArray(new Node[0]);//Java 6 or later recommends new Node[0] over new Node[list.size()] (more thread safe and more efficient
     }
@@ -107,5 +107,9 @@ class BinaryTree {
     public Node findMaximumValue() {
         //TODO
         return null;
+    }
+
+    public Node getRoot() {
+        return root;
     }
 }
