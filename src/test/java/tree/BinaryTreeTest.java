@@ -146,6 +146,27 @@ public class BinaryTreeTest {
         }
     }
 
+    @Test
+    public void testFindMaxValueMethod() {
+        //Test a null tree scenario
+        BinaryTree aTree = new BinaryTree(null);
+        Node node = aTree.findMaximumValue();
+        assertNull(node);
+
+        //Test a single node tree edge case
+        BinaryTree tree2 = new BinaryTree(new Node(777, null, null));
+        Node anotherNode = tree2.findMaximumValue();
+        assertNotNull(anotherNode);
+        assertTrue((Integer) anotherNode.getValue() == 777);
+
+        //Test on our wiki based binary tree example with numbers
+        BinaryTree digiBinaryTree = new BinaryTree(createIntegerBinaryTree());
+        Node myNode = digiBinaryTree.findMaximumValue();
+        assertNotNull(myNode);
+        assertTrue((Integer) myNode.getValue() == 11);
+
+    }
+
     /**
      * Using wiki example to test some stuff:
      * https://en.wikipedia.org/wiki/Tree_traversal#Pre-order_(NLR)
@@ -177,5 +198,11 @@ public class BinaryTreeTest {
         Node leftNode = new Node("B", new Node("A", null, null), new Node("D", null, new Node("E", null, null)));
         Node rightNode = new Node("G", null, new Node("I", null, new Node("J", null, null)));
         return new Node("F", leftNode, rightNode);
+    }
+
+    private Node createIntegerBinaryTree() {
+        Node leftNode = new Node(7, new Node(2, null, null), new Node(6, new Node(5, null, null), new Node(11, null, null)));
+        Node rightNode = new Node(5, null, new Node(9, new Node(4, null, null), null));
+        return new Node(2, leftNode, rightNode);
     }
 }
