@@ -2,7 +2,6 @@ package tree;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.Queue;
 
 /**
  * This is a binary tree data structure.
@@ -104,14 +103,6 @@ public class BinaryTree {
     }
 
     /**
-     * Returns the maximum value in the tree.
-     */
-    public Node findMaximumValue() {
-        //TODO
-        return null;
-    }
-
-    /**
      * Performs a bredth-first traversal, and returns the nodes in order.
      * @return The array of nodes found according to breadth first tree traversal.
      */
@@ -147,6 +138,41 @@ public class BinaryTree {
             }
         }
         return returnList;
+    }
+
+    public Node findMaximumValue() {
+        if (root == null) {
+            return null;
+        }
+        return findMaximumValue(root);
+    }
+
+    //TODO; this implementation could be cleaner.
+    private static Node findMaximumValue(Node node) {
+        if (node == null) {
+            return new Node(Integer.MIN_VALUE, null, null);
+        }
+
+        boolean leftIsGreatest = false;
+        Node left = findMaximumValue(node.getLeftChildNode());
+        Node right = findMaximumValue(node.getRightChildNode());
+        if ((Integer) left.getValue() >= (Integer) right.getValue()) {
+            leftIsGreatest = true;
+        }
+        if (leftIsGreatest) {
+            if((Integer) left.getValue() > (Integer) node.getValue()) {
+                return left;
+            }
+            else {
+                return node;
+            }
+        }
+        else if((Integer) right.getValue() > (Integer) node.getValue()) {
+            return right;
+        }
+        else {
+            return node;
+        }
     }
 
     /**
