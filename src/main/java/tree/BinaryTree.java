@@ -129,6 +129,7 @@ public class BinaryTree {
         while (helperQueue.size() > 0) {
             Node traverseNode = helperQueue.poll();
             returnList.add(traverseNode);
+            System.out.println(traverseNode.getValue());
 
             if (traverseNode.getLeftChildNode() != null) {
                 helperQueue.add(traverseNode.getLeftChildNode());
