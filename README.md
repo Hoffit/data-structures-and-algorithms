@@ -1,7 +1,7 @@
 # Code Fellows 401 Data Structures and Algorithms
-This repo will be home to daily code challenges.
+This repo will be home to daily code challenges and some labs.
 
-### TODO (WIP) : Trying to compose this top level markdown of lower level markdowns.
+Javadoc published: https://hoffit.github.io/data-structures-and-algorithms/
 
 # CF Code Challenge Day 01
 [challenge readme](./README_Challenge_01.md)
