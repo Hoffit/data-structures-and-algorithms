@@ -24,4 +24,4 @@ Be sure to follow your language/frameworks standard naming conventions (e.g. C# 
 I created LinkedList class with a Node instance pointint to first Node. Added methods per lab instructions. The insert is O(1). The includes method is O(n). Space is n.
 
 ## API
-[javadoc](./javadoc/ds/package-summary.html)
+[javadoc](docs/ds/package-summary.html)

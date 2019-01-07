@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"ds"},{"l":"fifoanimalshelter"},{"l":"multibracketvalidation"},{"l":"queuewithstacks"},{"l":"stacksandqueues"},{"l":"tree"}]
