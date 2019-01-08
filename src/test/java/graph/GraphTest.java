@@ -142,4 +142,9 @@ public class GraphTest {
         assertTrue(g.size() == 2);
     }
 
+    //TODO
+    @Test
+    public void testBreadthFirstTraversalMethod() {
+        assertTrue(true);
+    }
 }

@@ -35,38 +35,38 @@ public class Graph<T> {
     }
 
     /**
-     * Creates a new edge in this graph between leftVertex and rightVertex.
+     * Creates a new edge in this graph between lefvertex and righvertex.
      * The edge is created with weight equal to 0.
-     * @param leftVertex The left vertex for the new edge.
-     * @param rightVertex The right vertex for the new edge.
+     * @param lefvertex The left vertex for the new edge.
+     * @param righvertex The right vertex for the new edge.
      * @throws IllegalArgumentException If either one of the edges does not exist in this graph.
      * @return The newly created edge.
      */
-    public Edge addEdge(Vertex leftVertex, Vertex rightVertex) {
-        if (!vertices.contains(leftVertex) || !vertices.contains(rightVertex)) {
+    public Edge addEdge(Vertex lefvertex, Vertex righvertex) {
+        if (!vertices.contains(lefvertex) || !vertices.contains(righvertex)) {
             throw new IllegalArgumentException("Error: specified vertex not in this graph!");
         }
 
-        return new Edge(leftVertex, rightVertex, 0);
+        return new Edge(lefvertex, righvertex, 0);
     }
 
     /**
-     * Creates a new edge in this graph between leftVertex and rightVertex.
+     * Creates a new edge in this graph between lefvertex and righvertex.
      * The edge is created with weight equal to passed in value of weight.
      * If either one of the edges does not exist in this graph, no edge is
      * created, and null is returned.
-     * @param leftVertex The left vertex for the new edge.
-     * @param rightVertex The right vertex for the new edge.
+     * @param lefvertex The left vertex for the new edge.
+     * @param righvertex The right vertex for the new edge.
      * @param weight The weight to assign to the new edge.
      * @throws IllegalArgumentException If either one of the edges does not exist in this graph.
      * @return The newly created edge.
      */
-    public Edge addEdge(Vertex leftVertex, Vertex rightVertex, int weight) {
-        if (!vertices.contains(leftVertex) || !vertices.contains(rightVertex)) {
+    public Edge addEdge(Vertex lefvertex, Vertex righvertex, int weight) {
+        if (!vertices.contains(lefvertex) || !vertices.contains(righvertex)) {
             throw new IllegalArgumentException("Error: specified vertex not in this graph!");
         }
 
-        return new Edge(leftVertex, rightVertex, weight);
+        return new Edge(lefvertex, righvertex, weight);
     }
 
     /**
@@ -88,5 +88,14 @@ public class Graph<T> {
         }
 
         return vertex.getNeighbors();
+    }
+
+    /**
+     * Returns an array of Vertex objects visited in a breadth first traversal, starting from vertex.
+     * @param vertex
+     * @return
+     */
+    public static Vertex[] breadthFirstTraversal(Vertex vertex) {
+        return null;
     }
 }
