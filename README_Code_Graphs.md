@@ -15,6 +15,9 @@ Implement your own Graph. The graph should be represented as an adjacency list, 
 
 ## Approach & Efficiency
 
+### addEdge, addVertex, getNeighbors, getVertices, size
+Big O(1) time and space
+
 ## API
 See Javadoc:
 https://hoffit.github.io/data-structures-and-algorithms/graph/package-summary.html

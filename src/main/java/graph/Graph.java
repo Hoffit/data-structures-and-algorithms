@@ -47,11 +47,7 @@ public class Graph<T> {
             throw new IllegalArgumentException("Error: specified vertex not in this graph!");
         }
 
-        Edge edge = null;
-        if (vertices.contains(leftVertex) && vertices.contains(rightVertex)) {
-            edge = new Edge(leftVertex, rightVertex, 0);
-        }
-        return edge;
+        return new Edge(leftVertex, rightVertex, 0);
     }
 
     /**
@@ -70,11 +66,7 @@ public class Graph<T> {
             throw new IllegalArgumentException("Error: specified vertex not in this graph!");
         }
 
-        Edge edge = null;
-        if (vertices.contains(leftVertex) && vertices.contains(rightVertex)) {
-            edge = new Edge(leftVertex, rightVertex, weight);
-        }
-        return edge;
+        return new Edge(leftVertex, rightVertex, weight);
     }
 
     /**
@@ -90,7 +82,7 @@ public class Graph<T> {
      * @param vertex The vertex for which to find neighbors.
      * @return The list of edge neighbors for the passed in vertex.
      */
-    public ArrayList<Edge> getNeighbors(Vertex<Edge> vertex) {
+    public ArrayList<Edge> getNeighbors(Vertex<T> vertex) {
         if (vertices.indexOf(vertex) == -1) {
             throw new IllegalArgumentException("Error: specified vertex not in this graph!");
         }

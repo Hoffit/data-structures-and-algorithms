@@ -23,6 +23,9 @@ public class Vertex<T> implements Comparable<T> {
      * @param aValue The vertex value.
      */
     public Vertex(T aValue) {
+        if (aValue == null) {
+            throw new IllegalArgumentException("Error: vertex value must be non-null!");
+        }
         this.value = aValue;
     }
 
@@ -51,7 +54,20 @@ public class Vertex<T> implements Comparable<T> {
         return 0;
     }
 
+    /**
+     * Returns the neighbors of this vertex.
+     * @return The list of neighbors.
+     */
     public ArrayList<Edge> getNeighbors() {
         return neighbors;
+    }
+
+    /**
+     * Add's the neighbor tEdge to this vertices' list.
+     * @param tEdge The edge to add to the neighbords list.
+     * @param <T> The Type.
+     */
+    public <T> void addNeighbor(Edge<T> tEdge) {
+        neighbors.add(tEdge);
     }
 }
