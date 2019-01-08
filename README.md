@@ -50,3 +50,6 @@ Javadoc published: https://hoffit.github.io/data-structures-and-algorithms/
 
 # CF Code: Graphs
 [challenge readme](./README_Code Graphs.md)
+
+# CF Code Challenge 26
+[challenge readme](./README_Challenge_26.md)
