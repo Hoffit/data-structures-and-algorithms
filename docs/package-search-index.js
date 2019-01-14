@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"ds"},{"l":"fifoanimalshelter"},{"l":"fizzbuzztree"},{"l":"graph"},{"l":"multibracketvalidation"},{"l":"queuewithstacks"},{"l":"stacksandqueues"},{"l":"tree"}]
+packageSearchIndex = [{"l":"ds"},{"l":"fifoanimalshelter"},{"l":"fizzbuzztree"},{"l":"graph"},{"l":"hashtable"},{"l":"multibracketvalidation"},{"l":"queuewithstacks"},{"l":"stacksandqueues"},{"l":"tree"}]
