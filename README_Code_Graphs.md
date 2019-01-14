@@ -1,23 +1,20 @@
 # Graphs
-Implement a graph.
+Implement a hashtable.
 
 ## Challenge
-Implement your own Graph. The graph should be represented as an adjacency list, and should include the following methods: 1. AddNode() - Adds a new node to the graph - Takes in the value of that node - Returns the added node 2. AddEdge() - Adds a new edge between two nodes in the graph - Include the ability to have a “weight” - Takes in the two nodes to be connected by the edge - Both nodes should already be in the Graph
+Implement a Hashtable with the following capabilities
 
-    GetNodes()
-        Returns all of the nodes in the graph as a collection (set, list, or similar)
-    GetNeighbors()
-        Returns a collection of nodes connected to the given node
-        Takes in a given node
-        Include the weight of the connection in the returned collection
-    Size()
-        Returns the total number of nodes in the graph
+    a method/function named add that takes in both the key and value. This method should hash the key and add the key and value pair to the table.
+    A method/function named Find that takes in the key and returns the value from key/value pair.
+    A method/function named contains that takes in the key and returns if the key exists in the table already.
+    A method/function named GetHash that takes in a key and returns the index in the array the key is stored.
 
 ## Approach & Efficiency
 
-### addEdge, addVertex, getNeighbors, getVertices, size
-Big O(1) time and space
+### add, find, contains, getHash
+Big O(?) time.
+Big O(?) space.
 
 ## API
 See Javadoc:
-https://hoffit.github.io/data-structures-and-algorithms/graph/package-summary.html
+https://hoffit.github.io/data-structures-and-algorithms/hashtable/package-summary.html
