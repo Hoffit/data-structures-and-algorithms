@@ -147,14 +147,42 @@ public class HashtableTest {
         }
     }
 
-    @Test
-    public void testExistsMethod() {
-        assertTrue(false);
+    @Test(expected = IllegalArgumentException.class)
+    public void testContainsMethodWithException() {
+        Hashtable hashtable = makeBaseValidHashtableNoCollisions();
+        hashtable.contains(null);
     }
 
     @Test
-    public void testGetHashMethod() {
-        assertTrue(false);
+    public void testContainsMethodAffirmative() {
+        Hashtable hashtable = makeBaseValidHashtableNoCollisions();
+        assertTrue(hashtable.contains("is"));
+    }
+
+    @Test
+    public void testContainsMethodNegative() {
+        Hashtable hashtable = makeBaseValidHashtableNoCollisions();
+        assertTrue(!hashtable.contains("that'd be a no"));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetHashMethodWithException() {
+        Hashtable hashtable = makeBaseValidHashtableNoCollisions();
+        hashtable.contains(null);
+    }
+
+    @Test
+    public void testGetHashMethodNotFound() {
+        Hashtable hashtable = makeBaseValidHashtableNoCollisions();
+        assertEquals(hashtable.getHash("It's not here!"), -1);
+    }
+
+    @Test
+    public void testGetHashMethodIsFound() {
+        Hashtable hashtable = makeBaseValidHashtableNoCollisions();
+        for (int i = 0; i < inputKeys.length; i++) {
+            assertEquals(hashtable.getHash(inputKeys[i]), i);
+        }
     }
 
     private Hashtable makeBaseValidHashtableNoCollisions() {
