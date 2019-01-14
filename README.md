@@ -55,4 +55,4 @@ Javadoc published: https://hoffit.github.io/data-structures-and-algorithms/
 [challenge readme](./README_Challenge_26.md)
 
 # CF Code: Hashtable
-[challenge readme](./README_Code Hashtable.md)
+[challenge readme](./README_Code_Hashtable.md)
