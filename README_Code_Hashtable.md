@@ -10,6 +10,8 @@ A method/function named contains that takes in the key and returns if the key ex
 A method/function named GetHash that takes in a key and returns the index in the array the key is stored.
 
 ## Approach & Efficiency
+This helped develop a solution: https://codefellows.github.io/common_curriculum/data_structures_and_algorithms/Code_401/class-20/resources/Hashtables.html
+
 add, find, contains, getHash
 
 Big O(n) time.
