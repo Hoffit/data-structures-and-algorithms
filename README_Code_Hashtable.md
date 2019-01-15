@@ -12,10 +12,17 @@ A method/function named GetHash that takes in a key and returns the index in the
 ## Approach & Efficiency
 This helped develop a solution: https://codefellows.github.io/common_curriculum/data_structures_and_algorithms/Code_401/class-20/resources/Hashtables.html
 
-add, find, contains, getHash
+### add, find, contains, getHash
 
+#### add, contains, getHash
+Big O(1) time.
+Big O(1) space.
+
+Note on the add and contains functions --> uses Java's ArrayList contains method, which is Big O (1)
+
+#### find
 Big O(n) time.
-Big O(n) space.
+Big O(1) space.
 
 ## API
 See Javadoc: https://hoffit.github.io/data-structures-and-algorithms/hashtable/package-summary.html
