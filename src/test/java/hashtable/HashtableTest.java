@@ -1,8 +1,5 @@
 package hashtable;
 
-import graph.Edge;
-import graph.Graph;
-import graph.Vertex;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -13,7 +10,7 @@ import static org.junit.Assert.*;
 public class HashtableTest {
 
     //Properties for the base happy path valid hashtable with no collisions
-    String[] inputKeys = new String[] {
+    private String[] inputKeys = new String[] {
             "This",
             "is",
             "a",
@@ -21,7 +18,7 @@ public class HashtableTest {
             "of",
             "keys"
     };
-    Integer[] inputValues = new Integer[] {
+    private Integer[] inputValues = new Integer[] {
             99,
             44,
             888,
@@ -29,7 +26,7 @@ public class HashtableTest {
             44444,
             9999999
     };
-    int[] expectedKeys = {
+    private int[] expectedKeys = {
             408,
             220,
             97,
@@ -39,19 +36,19 @@ public class HashtableTest {
     };
 
     //Properties for the base path valid hashtable WITH collisions
-    String[] inputKeysWithCollisions = new String[] {
+    private String[] inputKeysWithCollisions = new String[] {
             "Collide!",
             "Cokmide!",
             "ok",
             "Collicf!"
     };
-    Integer[] inputValuesWithCollisions = new Integer[] {
+    private Integer[] inputValuesWithCollisions = new Integer[] {
             42,
             88,
             66,
             9999
     };
-    int[] expectedKeysForWithCollisions = {
+    private int[] expectedKeysForWithCollisions = {
             733,
             218
     };
@@ -67,7 +64,7 @@ public class HashtableTest {
     @Test(expected = IllegalArgumentException.class)
     public void testAddWithException() {
         Hashtable hashtable = new Hashtable();
-        hashtable.add(null, String.valueOf("test me"));
+        hashtable.add(null, "test me");
     }
 
     @Test

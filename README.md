@@ -56,3 +56,6 @@ Javadoc published: https://hoffit.github.io/data-structures-and-algorithms/
 
 # CF Code: Hashtable
 [challenge readme](./README_Code_Hashtable.md)
+
+# CF Code Challenge 31
+[challenge readme](./README_Challenge_31.md)
