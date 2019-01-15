@@ -15,4 +15,4 @@ Performance based on n, number of words.
 - Big O(n) space (Creates a hashmap of words)
 
 ## Solution
-[White board write up](assets/word_dups.jpg)
+[White board write up](assets/word_dups.JPG)
