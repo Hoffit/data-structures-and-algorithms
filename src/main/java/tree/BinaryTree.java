@@ -6,7 +6,7 @@ import java.util.LinkedList;
 /**
  * This is a binary tree data structure.
  */
-public class BinaryTree {
+public class BinaryTree<T> {
 
     /**
      * The root node in the binary tree.
